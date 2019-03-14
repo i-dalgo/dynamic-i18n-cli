@@ -6,8 +6,8 @@ const writeFile = require('./utils').writeFile;
 const https = require('https');
 
 module.exports = async (apiUrl, localesPath = './src/lang/') => {
-  const start = new Date()
-  let status = true
+  const start = new Date();
+  let status = true;
   shell.echo(`
   ✨  Importing locales from "${apiUrl}"
   `);
@@ -34,7 +34,7 @@ module.exports = async (apiUrl, localesPath = './src/lang/') => {
     }
   });
 
-  const end = new Date() - start
+  const end = new Date() - start;
 
   // Something wrong happen => returning an error
   if (!status) process.exit(1);
