@@ -1,6 +1,6 @@
 {
   "name": "dynamic-i18n-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate locales files from external API endpoint.",
   "main": "index.js",
   "bin": "./index.js",
