@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 const { readFile, writeFile, getFilesName } = require('./utils');
 const mergeByKey = require('array-merge-by-key');
 const flatten = require('flat');
