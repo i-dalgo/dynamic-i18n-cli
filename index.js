@@ -2,9 +2,10 @@
 const program = require('commander');
 const importer = require('./bin/importer');
 const exporter = require('./bin/exporter');
+const { version } = require('./package.json')
 
 program
-  .version('1.0.0', '-v, --version')
+  .version(version, '-v, --version')
   .description('Locale files manager');
 
 program
