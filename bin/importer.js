@@ -15,7 +15,7 @@ module.exports = async (apiUrl, localesPath = './src/lang/') => {
     rejectUnauthorized: false
   });
   let { data } = await axios.get(apiUrl, { httpsAgent: agent });
-  const bannedKeys = ['id', 'key', 'created_at', 'updated_at']; // useless-keys
+  const bannedKeys = ['id', 'key', 'created_at', 'updated_at', 'published_at']; // useless-keys
   const languages = Object.keys(data[0]).filter(el => !bannedKeys.includes(el));
   if (!languages) return console.error('No languages found')
   languages.forEach(lang => {
