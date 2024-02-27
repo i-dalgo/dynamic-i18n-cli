@@ -7,7 +7,7 @@ import exporter from './bin/exporter.mjs';
 const version = '2.0.0'
 
 program
-  .version(pkg.version, '-v, --version')
+  .version(version, '-v, --version')
   .description('Locale files manager');
 
 program
