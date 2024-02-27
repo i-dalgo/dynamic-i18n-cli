@@ -1,14 +1,18 @@
 'use strict';
-const { readFile, writeFile, getFilesName } = require('./utils');
-const mergeByKey = require('array-merge-by-key');
-const flatten = require('flat');
 
-module.exports = (localesPath = './src/lang/') => {
+import { flatten } from 'flat';
+import mergeByKey from 'array-merge-by-key';
+import { readFile, writeFile, getFilesName } from './utils.mjs';
+
+export default function generateLocales(localesPath = './src/lang/') {
   const locales = getFilesName(localesPath);
   const models = {};
   const flatModels = [];
 
-  if (!locales) return console.error('No locale files found !')
+  if (!locales) {
+    console.error('No locale files found!');
+    return;
+  }
 
   locales.forEach(locale => {
     models[locale] = [];
@@ -22,8 +26,10 @@ module.exports = (localesPath = './src/lang/') => {
     });
   });
 
-  Object.keys(models).forEach(key => { flatModels.push(models[key]) });
+  Object.keys(models).forEach(key => {
+    flatModels.push(models[key]);
+  });
 
   const result = mergeByKey('key', ...flatModels);
-  writeFile(`./locales.json`, JSON.stringify(result));
+  writeFile('./locales.json', JSON.stringify(result));
 }
